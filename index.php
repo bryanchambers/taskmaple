@@ -1,6 +1,8 @@
 <?php 
 
 include 'new-item.php';
+include 'delete-item.php';
+include 'item-exists.php';
 
 $db = new mysqli('localhost', 'root', 'atlas', 'tree');
 
@@ -12,24 +14,22 @@ else { echo "Yay!"; }
 
 
 
-if(isset($_GET['text'])) {
-	$item = $_GET['text'];
-	$right = $_GET['right'];
+if(isset($_POST['new'])) {
+	$item = $_POST['text'];
+	$position = $_POST['position'];
 
-	$query = "SELECT COUNT(*) AS 'count' FROM tree WHERE tree_right = $right OR tree_left = $right";
-
-	$result = $db->query($query);
-	$row = $result->fetch_assoc();
-	$count = $row['count'];
-
-	if($count > 0) {
-		newItem($db, $right, $item);
+	if(itemExists($db, 0, $position)) {
+		newItem($db, $position, $item);
 	}
 }
 
 
 
-
+if(isset($_POST['delete'])) {
+	$left = $_POST['left'];
+	$right = $_POST['right'];
+	deleteItem($db, $left, $right);
+}
 
 
 
@@ -81,10 +81,14 @@ echo "</table>";
 	<title></title>
 </head>
 <body>
-	<form>
-		<input name='right' type='number' placeholder='tree right value'>
+	<form method='post'>
+		<input name='position' type='number' placeholder='tree left/right value'>
 		<input name='text' type='text' placeholder='new item'>
-		<input type='submit' value='Insert New Item'>
+		<input type='submit' name='new' value='Insert New Item'><br>
+
+		<input name='left' type='number' placeholder='tree left value'>
+		<input name='right' type='text' placeholder='tree right value'>
+		<input type='submit' name='delete' value='Delete Item'>
 	</form>
 </body>
 </html>
