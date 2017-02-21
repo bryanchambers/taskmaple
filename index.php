@@ -4,7 +4,7 @@ include 'new-item.php';
 include 'delete-item.php';
 include 'item-exists.php';
 
-$db = new mysqli('localhost', 'root', 'atlas', 'tree');
+$db = new mysqli('localhost', 'root', 'root', 'taskular');
 
 if($db->connect_errno) { echo "Fail"; }
 else { echo "Yay!"; }	
@@ -38,11 +38,11 @@ if(isset($_POST['delete'])) {
 
 
 
-$query = "SELECT COUNT(parent.id) AS 'depth', node.text AS 'text', node.tree_left AS 'left', node.tree_right AS 'right' 
-			FROM tree AS node, tree AS parent 
-			WHERE (node.tree_left BETWEEN parent.tree_left AND parent.tree_right) 
+$query = "SELECT COUNT(parent.id) AS 'depth', node.task AS 'text', node.lft AS 'left', node.rgt AS 'right' 
+			FROM tasks AS node, tasks AS parent 
+			WHERE (node.lft BETWEEN parent.lft AND parent.rgt) 
 			GROUP BY node.id 
-			ORDER BY node.tree_left";
+			ORDER BY node.lft";
 
 
 
@@ -82,7 +82,8 @@ echo "</table>";
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 </head>
 <body>
-	<div class='container text-left'>
+	<div class='container text-center'>
+		<div class='row'><div class='col-md-12'><h1>Taskular<small>&nbsp; Coming soon to a theatre near you</small></h1></div></div>
 		<div class='row'><div class='col-md-4 col-md-offset-4'>
 			<form method='post'>
 				<div class='row form-group'>

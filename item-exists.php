@@ -9,7 +9,7 @@ function itemExists($db, $left, $right) {
 	else {
 	//New item
 		$position = $left + $right; //One of them is zero
-		$query = "SELECT COUNT(*) AS 'count' FROM tree WHERE tree_right = $position OR tree_left = $position";
+		$query = "SELECT COUNT(*) AS 'count' FROM tasks WHERE rgt = $position OR lft = $position";
 		$result = $db->query($query);
 		$row = $result->fetch_assoc();
 		$count = $row['count'];
