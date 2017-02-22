@@ -3,8 +3,10 @@
 include 'new-item.php';
 include 'delete-item.php';
 include 'item-exists.php';
+include 'get-data.php';
+include 'build-tree.php';
 
-$db = new mysqli('localhost', 'root', 'root', 'taskular');
+$db = new mysqli('localhost', 'root', 'atlas', 'taskular');
 
 if($db->connect_errno) { echo "Fail"; }
 else { echo "Yay!"; }	
@@ -32,47 +34,7 @@ if(isset($_POST['delete'])) {
 }
 
 
-
-
-
-
-
-
-$query = "SELECT COUNT(parent.id) AS 'depth', node.task AS 'text', node.lft AS 'left', node.rgt AS 'right' 
-			FROM tasks AS node, tasks AS parent 
-			WHERE (node.lft BETWEEN parent.lft AND parent.rgt) 
-			GROUP BY node.id 
-			ORDER BY node.lft";
-
-
-
-$result = $db->query($query);
-
-
-echo "<table>";
-
-while($row = $result->fetch_assoc()) {
-	echo "<tr>";
-		//foreach($row as $index=>$value) { echo "<td>$value</td>"; }
-		$indent = $row['depth'] - 1;
-		$text = $row['text'];
-		$left = $row['left'];
-		$right = $row['right'];
-
-		echo "<td>";
-		for($i = 0; $i < $indent; $i++) {
-			for($j = 0; $j < 10; $j++) { echo "&nbsp;"; }
-		}
-		echo ">&nbsp;";
-		echo "$text</td>";
-
-
-		echo "<td>$left</td>";
-		echo "<td>$right</td>";
-	echo "</tr>";
-}
-
-echo "</table>";
+$data = getData($db);
 
 ?>
 
@@ -84,6 +46,18 @@ echo "</table>";
 <body>
 	<div class='container text-center'>
 		<div class='row'><div class='col-md-12'><h1>Taskular<small>&nbsp; Coming soon to a theatre near you</small></h1></div></div>
+		
+		<div class='row'><div class='col-md-6 col-md-offset-3'>
+			<table class='table'>
+				<tr>
+					<th>Left</th>
+					<th>Right</th>
+					<th>Task</th>
+				</tr>
+				<?php buildTree($data); ?>
+			</table>
+		</div></div>
+		
 		<div class='row'><div class='col-md-4 col-md-offset-4'>
 			<form method='post'>
 				<div class='row form-group'>
