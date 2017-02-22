@@ -6,7 +6,7 @@ include 'item-exists.php';
 include 'get-data.php';
 include 'build-tree.php';
 
-$db = new mysqli('localhost', 'root', 'atlas', 'taskular');
+$db = new mysqli('localhost', 'root', 'root', 'taskular');
 
 if($db->connect_errno) { echo "Fail"; }
 else { echo "Yay!"; }	
@@ -42,6 +42,8 @@ $data = getData($db);
 <head>
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<script type='text/javascript' src='jquery/jquery.min.js'></script>
+	<script type='text/javascript' src='bootstrap/js/bootstrap.min.js'></script>
 </head>
 <body>
 	<div class='container text-center'>
