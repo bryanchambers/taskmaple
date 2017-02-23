@@ -3,7 +3,7 @@
 include 'create-table-tasks.php';
 
 
-$db = new mysqli('localhost', 'root', 'root', 'taskular');
+$db = new mysqli('localhost', 'root', 'atlas', 'taskular');
 
 if($db->connect_errno) { echo "Fail"; }
 else { echo "Yay!"; }	

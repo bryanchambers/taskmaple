@@ -2,13 +2,15 @@
 
 function buildTree($data) {
 
-	foreach($data as $row) {
-		echo "<tr>";
-			$depth = $row['depth'] - 1;
-			$text  = $row['text'];
-			$left  = $row['left'];
-			$right = $row['right'];
-			
+	foreach($data as $row) {		
+		$id    = $row['id'];
+		$depth = $row['depth'] - 1;
+		$text  = $row['text'];
+		$left  = $row['left'];
+		$right = $row['right'];
+		
+		echo "<tr id='row$id'>";
+			echo "<td>$id</td>";	
 			echo "<td>$left</td>";
 			echo "<td>$right</td>";
 
@@ -21,10 +23,12 @@ function buildTree($data) {
 			
 			echo "
 			<div class='btn-group' role='group'>
-			    <button class='btn btn-default dropdown-toggle btn-xs' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Add</button>
+			    <div class='dropdown-toggle' data-toggle='dropdown'>
+			    	<span class='glyphicon glyphicon-plus'></span>
+			    </div>
 			    <ul class='dropdown-menu'>
-			      <li><a href='#'>Task after</a></li>
-			      <li><a href='#'>Subtask</a></li>
+			      <li id='tsk$id' class='add-task'><a href='#'>Task after</a></li>
+			      <li id='sub$id' class='add-task'><a href='#'>Subtask</a></li>
 			    </ul>
 			</div>";
 

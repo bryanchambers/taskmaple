@@ -6,7 +6,7 @@ include 'item-exists.php';
 include 'get-data.php';
 include 'build-tree.php';
 
-$db = new mysqli('localhost', 'root', 'root', 'taskular');
+$db = new mysqli('localhost', 'root', 'atlas', 'taskular');
 
 if($db->connect_errno) { echo "Fail"; }
 else { echo "Yay!"; }	
@@ -44,6 +44,16 @@ $data = getData($db);
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<script type='text/javascript' src='jquery/jquery.min.js'></script>
 	<script type='text/javascript' src='bootstrap/js/bootstrap.min.js'></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('.add-task').click(function(event) {
+			var trig = event.currentTarget.id;
+			var id = trig.substr(3, trig.length - 3);
+			var type = trig.substr(0, 3);
+			$('#row' + id).after("<tr><td>1</td><td>2</td><td>3</td><td><form class='form-inline'><input class='form-control' type='text' placeholder='New task'></input></form></td></tr>");
+		});
+	});
+	</script>
 </head>
 <body>
 	<div class='container text-center'>
@@ -52,6 +62,7 @@ $data = getData($db);
 		<div class='row'><div class='col-md-6 col-md-offset-3'>
 			<table class='table'>
 				<tr>
+					<th>ID</th>
 					<th>Left</th>
 					<th>Right</th>
 					<th>Task</th>
