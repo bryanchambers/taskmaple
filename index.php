@@ -44,17 +44,19 @@ $data = getData($db);
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<script type='text/javascript' src='jquery/jquery.min.js'></script>
 	<script type='text/javascript' src='bootstrap/js/bootstrap.min.js'></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		$('.add-task').click(function(event) {
-			var trig = event.currentTarget.id;
-			var id = trig.substr(3, trig.length - 3);
-			var type = trig.substr(0, 3);
-			$('#row' + id).after("<tr><td>1</td><td>2</td><td>3</td><td><form class='form-inline'><input class='form-control' type='text' placeholder='New task'></input></form></td></tr>");
-		});
-	});
-	</script>
+	<script type='text/javascript' src='main.js'></script>
+	<script type='text/javascript' src='parse-row-info.js'></script>
+	<script type='text/javascript' src='new-item-input.js'></script>
+
+	<style type="text/css">
+		.input {
+			border: none;
+			border-bottom: 2px solid gray;
+			outline: none;
+		}
+	</style>
 </head>
+
 <body>
 	<div class='container text-center'>
 		<div class='row'><div class='col-md-12'><h1>Taskular<small>&nbsp; Coming soon to a theatre near you</small></h1></div></div>

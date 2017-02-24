@@ -27,8 +27,8 @@ function buildTree($data) {
 			    	<span class='glyphicon glyphicon-plus'></span>
 			    </div>
 			    <ul class='dropdown-menu'>
-			      <li id='tsk$id' class='add-task'><a href='#'>Task after</a></li>
-			      <li id='sub$id' class='add-task'><a href='#'>Subtask</a></li>
+			      <li id='tsk$id-$depth' class='add-task'><a href='#'>Task after</a></li>
+			      <li id='sub$id-$depth' class='add-task'><a href='#'>Subtask</a></li>
 			    </ul>
 			</div>";
 
