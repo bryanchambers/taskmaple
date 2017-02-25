@@ -1,93 +1,40 @@
-<?php 
+<!-- Taskular by Bryan Chambers, Copyright 2017 -->
 
-include 'new-item.php';
-include 'delete-item.php';
-include 'item-exists.php';
-include 'get-data.php';
-include 'build-tree.php';
-
-$db = new mysqli('localhost', 'root', 'atlas', 'taskular');
-
-if($db->connect_errno) { echo "Fail"; }
-else { echo "Yay!"; }	
-
-
-
-
-
-
-if(isset($_POST['new'])) {
-	$item = $_POST['text'];
-	$position = $_POST['position'];
-
-	if(itemExists($db, 0, $position)) {
-		newItem($db, $position, $item);
-	}
-}
-
-
-
-if(isset($_POST['delete'])) {
-	$left = $_POST['left'];
-	$right = $_POST['right'];
-	deleteItem($db, $left, $right);
-}
-
-
-$data = getData($db);
-
-?>
+<?php include 'backend/main.php'; ?>
 
 <html>
 <head>
-	<title></title>
+	<title>Taskular</title>
+	
+	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<!-- JS frameworks -->
 	<script type='text/javascript' src='jquery/jquery.min.js'></script>
 	<script type='text/javascript' src='bootstrap/js/bootstrap.min.js'></script>
-	<script type='text/javascript' src='main.js'></script>
-	<script type='text/javascript' src='parse-row-info.js'></script>
-	<script type='text/javascript' src='new-item-input.js'></script>
-
-	<style type="text/css">
-		.input {
-			border: none;
-			border-bottom: 2px solid gray;
-			outline: none;
-		}
-	</style>
+	
+	<!-- App specific JS -->
+	<script type='text/javascript' src='js/main.js'></script>
+	<script type='text/javascript' src='js/parse-row-info.js'></script>
+	<script type='text/javascript' src='js/new-item-input.js'></script>
+	<script type='text/javascript' src='js/create-branch.js'></script>
+	<script type='text/javascript' src='js/delete-item.js'></script>
+	<script type='text/javascript' src='js/create-status-menu.js'></script>
 </head>
 
 <body>
 	<div class='container text-center'>
-		<div class='row'><div class='col-md-12'><h1>Taskular<small>&nbsp; Coming soon to a theatre near you</small></h1></div></div>
-		
-		<div class='row'><div class='col-md-6 col-md-offset-3'>
-			<table class='table'>
-				<tr>
-					<th>ID</th>
-					<th>Left</th>
-					<th>Right</th>
-					<th>Task</th>
-				</tr>
-				<?php buildTree($data); ?>
-			</table>
-		</div></div>
-		
-		<div class='row'><div class='col-md-4 col-md-offset-4'>
-			<form method='post'>
-				<div class='row form-group'>
-					<div class='col-md-5'><input class='form-control' name='position' type='number' placeholder='tree value'></div>
-					<div class='col-md-5'><input class='form-control' name='text' type='text' placeholder='text'></div>
-					<div class='col-md-2'><input class='btn btn-default' type='submit' name='new' value='Add Item'></div>
-				</div>
+		<div class='row'><div class='col-md-12'><h1>Taskular</h1></div></div>
+		<div class='row spacer'><div class='col-md-12'></div></div>
 
-				<div class='row form-group'>
-					<div class='col-md-5'><input class='form-control' name='left' type='number' placeholder='tree left'></div>
-					<div class='col-md-5'><input class='form-control' name='right' type='text' placeholder='tree right'></div>
-					<div class='col-md-2'><input class='btn btn-default' type='submit' name='delete' value='Delete Item'></div>
-				</div>
-			</form>
+		<!-- Build task tree -->
+		<div class='row'><div class='col-md-6 col-md-offset-3'>
+			<table class='table'><?php buildTree($data); ?></table>
 		</div></div>
+
+		<div class='row spacer'><div class='col-md-12'></div></div>
+		<div class='row spacer'><div class='col-md-12'></div></div>
 	</div>
 </body>
 </html>

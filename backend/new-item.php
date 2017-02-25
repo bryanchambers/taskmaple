@@ -13,6 +13,6 @@ function newItem($db, $position, $item) {
 	$result = $db->query($query);
 
 	//Insert new item
-	$query = "INSERT INTO tasks(lft, rgt, task) VALUES($left, $right, '$item')";
+	$query = "INSERT INTO tasks(lft, rgt, status, task) VALUES($left, $right, 1, '$item')";
 	$result = $db->query($query);
 }

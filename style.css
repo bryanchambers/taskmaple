@@ -1,0 +1,11 @@
+.input {
+	border: none;
+	outline: none;
+	background-color: #e6e6e6;
+}
+.options {
+	color: gray;
+}
+.spacer {
+	height: 30px;
+}

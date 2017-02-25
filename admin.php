@@ -1,7 +1,7 @@
 <?php
 
 include 'create-table-tasks.php';
-
+include 'create-table-status.php';
 
 $db = new mysqli('localhost', 'root', 'atlas', 'taskular');
 
@@ -12,6 +12,9 @@ else { echo "Yay!"; }
 if(isset($_POST['table'])) {
 	if($_POST['table'] = 'Tasks') {
 		createTableTasks($db);
+	}
+	if($_POST['table'] = 'Status') {
+		createTableStatus($db);
 	}
 }
 
@@ -33,6 +36,7 @@ if(isset($_POST['table'])) {
 				<div class='col-md-3 col-md-offset-4'>
 					<select class='form-control' name='table'>
 						<option>Tasks</option>
+						<option>Status</option>
 					</select>
 				</div>
 
