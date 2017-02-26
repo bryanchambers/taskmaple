@@ -34,7 +34,16 @@
 			<table class='table'><?php buildTree($data); ?></table>
 		</div></div>
 
-		<div class='row spacer'><div class='col-md-12'></div></div>
+		<!-- HTML snippets -->
+		<div class='row spacer'><div id='snippets' class='col-md-12'>
+			<div id='snip-status' class='btn btn-default btn-group btn-xs status' role='group'>
+			 	<div class='dropdown-toggle' data-toggle='dropdown'>Status</div>
+				<ul class='dropdown-menu'>
+					<?php getStatusList($db); ?>
+				</ul>
+			</div>
+		</div></div>
+		
 		<div class='row spacer'><div class='col-md-12'></div></div>
 	</div>
 </body>

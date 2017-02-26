@@ -1,7 +1,7 @@
 <?php
 
-include 'create-table-tasks.php';
-include 'create-table-status.php';
+include 'backend/create-table-tasks.php';
+include 'backend/create-table-status.php';
 
 $db = new mysqli('localhost', 'root', 'atlas', 'taskular');
 

@@ -10,3 +10,9 @@
 .spacer {
 	height: 30px;
 }
+#snippits {
+	visibility: hidden;
+}
+.status {
+	width: 50px;
+}
