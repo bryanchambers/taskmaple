@@ -1,4 +1,5 @@
 <!-- Taskular by Bryan Chambers, Copyright 2017 -->
+<!-- Delete this comment -->
 
 <?php include 'backend/main.php'; ?>
 
