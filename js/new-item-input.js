@@ -7,7 +7,7 @@ function newItemInput(info) {
 	var indent = '&nbsp;'.repeat(depth);
 	
 	var status = "<span class='glyphicon glyphicon-chevron-right'></span>&nbsp;";
-	var form = "<input id='new-task-input' class='input' type='text' autofocus>";
+	var form = "<input id='new-task-input' class='input' type='text' autofocus>&nbsp;<small id='char-count'>100</small>";
 	var item = '<td>' + indent + status + form + '</td>';
 	var content = item;
 
@@ -34,7 +34,7 @@ function newItemInput(info) {
 
 	var type = info.type;
 	var id = info.id;
-	$('#new-task-input').keypress(function(event) {
+	$('#new-task-input').keyup(function(event) {
 		if(event.charCode == 13) { 
 			var task = $('#new-task-input').val();
 			$.get('./api.php?type=' + type + '&id=' + id + '&task=' + task, function(data) {
@@ -52,6 +52,16 @@ function newItemInput(info) {
 					deleteItem(parseRowInfo(event.currentTarget.id));
 				});
 			});
+		}
+		else {
+			var len = $('#new-task-input').val().length;
+			$('#char-count').text(100 - len);
+			if(len > 100) {
+				$('#char-count').css('color', 'red');
+			}
+			else {
+				$('#char-count').css('color', 'gray');
+			}
 		}
 	});
 }

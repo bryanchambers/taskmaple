@@ -5,6 +5,7 @@ include 'backend/delete-item.php';
 include 'backend/item-exists.php';
 include 'backend/get-item-data.php';
 include 'backend/get-new-item-data.php';
+include 'backend/change-status.php';
 
 $db = new mysqli('localhost', 'root', 'atlas', 'taskular');
 if($db->connect_errno) { echo "Fail"; }
@@ -24,4 +25,8 @@ elseif($_GET['type'] == 'sub') {
 }
 elseif($_GET['type'] == 'del') {
 	deleteItem($db, $data['lft'], $data['rgt']);
+}
+elseif($_GET['type'] == 'status') {
+	$status = $_GET['status'];
+	changeStatus($db, $id, $status);
 }

@@ -21,6 +21,7 @@
 	<script type='text/javascript' src='js/create-branch.js'></script>
 	<script type='text/javascript' src='js/delete-item.js'></script>
 	<script type='text/javascript' src='js/create-status-menu.js'></script>
+	<script type='text/javascript' src='js/change-status.js'></script>
 </head>
 
 <body>

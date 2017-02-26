@@ -6,7 +6,7 @@ function createBranch($id, $left, $right, $depth, $text, $status, $class) {
 		for($i = 0; $i < $depth; $i++) {
 			for($j = 0; $j < 10; $j++) { $branch .= "&nbsp;"; }
 		}
-		$branch .= createStatusMenu($status, $class);
+		$branch .= createStatusMenu($id, $status, $class);
 		$branch .= "&nbsp;$text";
 		$branch .= "</td>";
 
