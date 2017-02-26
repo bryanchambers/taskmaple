@@ -35,7 +35,7 @@ function newItemInput(info) {
 	var type = info.type;
 	var id = info.id;
 	$('#new-task-input').keyup(function(event) {
-		if(event.charCode == 13) { 
+		if(event.keyCode == 13) { 
 			var task = $('#new-task-input').val();
 			$.get('./api.php?type=' + type + '&id=' + id + '&task=' + task, function(data) {
 				$('#new-task-input').parent().parent().remove();
@@ -50,6 +50,14 @@ function newItemInput(info) {
 
 				$(row + ' .del-task').click(function(event) {
 					deleteItem(parseRowInfo(event.currentTarget.id));
+				});
+
+
+				$(row + ' .chg-status').click(function(event) {
+					var status = $(this).text();
+					var row    = $(this).closest('tr').attr('id');
+					var id     = parseRowInfo(row).id;
+					changeStatus(row, id, status);
 				});
 			});
 		}
