@@ -38,9 +38,9 @@
 		<!-- HTML snippets -->
 		<div class='row spacer'><div id='snippets' class='col-md-12'>
 			<?php
-			createSnippetStatus('Status', 'btn-default', $status_list);
-			createSnippetAction('plus', 'add-task', array('Add task after', 'Add subtask'));
-			createSnippetAction('trash', 'del-task', array('Delete forever')); ?>
+			createSnippetStatus('Status', '', $status_list);
+			createSnippetAction('add', 'plus', 'add-task', array('Add task after', 'Add subtask'));
+			createSnippetAction('delete', 'trash', 'del-task', array('Delete forever')); ?>
 		</div></div>
 		
 		<div class='row spacer'><div class='col-md-12'></div></div>

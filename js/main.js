@@ -12,7 +12,7 @@ $(document).ready(function() {
 	$('.chg-status').click(function(event) {
 		var status = $(this).text();
 		var row    = $(this).closest('tr').attr('id');
-		var id     = parseRowInfo(row).id;
+		var id     = row.split('-')[0];
 		changeStatus(row, id, status);
 	});
 });
