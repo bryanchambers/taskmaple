@@ -1,5 +1,5 @@
 <!-- Taskular by Bryan Chambers, Copyright 2017 -->
-<!-- Delete this comment -->
+
 
 <?php include 'backend/main.php'; ?>
 
@@ -32,17 +32,15 @@
 
 		<!-- Build task tree -->
 		<div class='row'><div class='col-md-6 col-md-offset-3'>
-			<table class='table'><?php buildTree($data); ?></table>
+			<table class='table'><?php buildTaskTree($data, $status_list); ?></table>
 		</div></div>
 
 		<!-- HTML snippets -->
 		<div class='row spacer'><div id='snippets' class='col-md-12'>
-			<div id='snip-status' class='btn btn-default btn-group btn-xs status' role='group'>
-			 	<div class='dropdown-toggle' data-toggle='dropdown'>Status</div>
-				<ul class='dropdown-menu'>
-					<?php getStatusList($db); ?>
-				</ul>
-			</div>
+			<?php
+				//createSnippetStatus('Status', 'btn-default', $status_list);
+				//createSnippetAction('plus', 'add-task', array('Add task after', 'Add subtask'));
+				//createSnippetAction('trash', 'del-task', array('Delete forever')); ?>
 		</div></div>
 		
 		<div class='row spacer'><div class='col-md-12'></div></div>

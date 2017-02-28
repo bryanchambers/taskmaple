@@ -15,4 +15,5 @@
 }
 .status {
 	width: 50px;
+	visibility: inherit;
 }
