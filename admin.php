@@ -1,9 +1,9 @@
 <?php
 
-include 'backend/create-table-tasks.php';
-include 'backend/create-table-status.php';
+include 'backend/db/create-table-tasks.php';
+include 'backend/db/create-table-status.php';
 
-$db = new mysqli('localhost', 'root', 'atlas', 'taskular');
+$db = new mysqli('localhost', 'root', 'root', 'taskular');
 
 if($db->connect_errno) { echo "Fail"; }
 else { echo "Yay!"; }	

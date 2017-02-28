@@ -1,16 +1,12 @@
 <?php
 
-include 'db-connect.php';
-include 'get-status-list.php';
-include 'get-tree-data.php';
+include 'db/db-connect.php';
+include 'main/get-status-list.php';
+include 'main/get-tree-data.php';
 
-include 'build-task-tree.php';
-include 'create-snippet-status.php';
-include 'create-snippet-action.php';
-
-include 'new-item.php';
-include 'delete-item.php';
-include 'item-exists.php';
+include 'main/build-task-tree.php';
+include 'main/create-snippet-status.php';
+include 'main/create-snippet-action.php';
 
 $db          = dbConnect();
 $status_list = getStatusList($db);

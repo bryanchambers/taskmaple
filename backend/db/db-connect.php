@@ -1,7 +1,7 @@
 <?php
 
 function dbConnect() {
-	$db = new mysqli('localhost', 'root', 'atlas', 'taskular');
+	$db = new mysqli('localhost', 'root', 'root', 'taskular');
 
 	if($db->connect_errno) {
 		echo "<span style='font-family: monospace; font-size: 16px'>";

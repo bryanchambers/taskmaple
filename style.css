@@ -4,16 +4,15 @@
 	background-color: #e6e6e6;
 	width: 300px;
 }
-.options {
+.action {
 	color: gray;
 }
 .spacer {
 	height: 30px;
 }
-#snippits {
+#snippets {
 	visibility: hidden;
 }
 .status {
 	width: 50px;
-	visibility: inherit;
 }
