@@ -1,33 +1,19 @@
-function deleteItem(info) {
-	var depth = info.depth;
-	var row   = '#row' + info.id + '-' + depth;
-	var row_chk_info = parseRowInfo($(row).next().attr('id'));
-	var depth_chk = row_chk_info.depth;
-	var id_chk = row_chk_info.id;
-	var row_chk = '#row' + id_chk + '-' + depth_chk;
-	var del = ['#row' + info.id + '-' + depth];
+function deleteItem(row, id, depth_parent) {
+	var del = [];
+	var depth;
 
-	while(depth_chk > depth) {
-		//Add to to list for deletion
-		del.push('#row' + id_chk + '-' + depth_chk);
-
-		//Go to next row
-		var row_chk_info = parseRowInfo($(row_chk).next().attr('id'));
-		var depth_chk = row_chk_info.depth;
-		var id_chk = row_chk_info.id;
-		var row_chk = '#row' + id_chk + '-' + depth_chk;
-	}
-
+	//Get list of rows to delete
+	do {
+		del.push('#' + row);
+		row   = $('#' + row).next().attr('id');
+		depth = row.split('-')[1];
+	} while(depth > depth_parent)
 
 	//Delete from client
 	for(var i = 0; i < del.length; i++) {
-		var row = del[i];
-		$(row).remove();
+		$(del[i]).remove();
 	}
 
-
-
 	//Delete from the database
-	$.get('./api.php?type=' + info.type + '&id=' + info.id, function(data) {
-	});
+	$.get('./api.php?type=del&id=' + id, function(data) {});
 }

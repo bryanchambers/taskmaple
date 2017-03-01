@@ -17,7 +17,6 @@
 	
 	<!-- App specific JS -->
 	<script type='text/javascript' src='js/main.js'></script>
-	<script type='text/javascript' src='js/parse-row-info.js'></script>
 	<script type='text/javascript' src='js/new-item-input.js'></script>
 	<script type='text/javascript' src='js/create-branch.js'></script>
 	<script type='text/javascript' src='js/delete-item.js'></script>
