@@ -40,7 +40,8 @@ function newItemInput(info) {
 			$.get('./api.php?type=' + type + '&id=' + id + '&task=' + task, function(data) {
 				$('#new-task-input').parent().parent().remove();
 				var data = JSON.parse(data);
-				$(row_chk).before(createBranch(data.id, data.lft, data.rgt, depth, data.status, data.style, data.task));
+				//$(row_chk).before(createBranch(data.id, data.lft, data.rgt, depth, data.status, data.style, data.task));
+				createBranch($(row_chk), data.id, depth);
 
 				var row = '#row' + data.id + '-' + depth/10;
 				$(row + ' .add-task').click(function(event) {

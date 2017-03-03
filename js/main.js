@@ -1,7 +1,10 @@
 $(document).ready(function() {
 	$('.add-task').click(function(event) {
-		var info = parseRowInfo(event.currentTarget.id);
-		newItemInput(info);
+		var row   = $(this).closest('tr').attr('id');
+		var info  = row.split('-');
+		var id    = info[0];
+		var depth = info[1];
+		newItemInput(row, id, depth);
 	});
 
 	$('.del-task').click(function(event) {
