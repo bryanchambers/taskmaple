@@ -12,11 +12,14 @@ function buildTaskTree($data, $status_list) {
 		echo "<tr id='$id-$depth'>";
 			
 			echo "<td>";
-			for($i = 0; $i < $depth; $i++) {
-				for($j = 0; $j < 10; $j++) { echo "&nbsp;"; }
-			}
-			createSnippetStatus($status, $style, $status_list);
-			echo "&nbsp; $task</td>";
+				echo "<span class='indent'>";
+				for($i = 0; $i < $depth; $i++) {
+					for($j = 0; $j < 10; $j++) { echo "&nbsp;"; }
+				}
+				echo "</span>";
+				createSnippetStatus($status, $style, $status_list);
+				echo "<span class='task'>&nbsp; $task</span>";
+			echo "</td>";
 			
 			echo "<td>";
 			createSnippetAction('add', 'plus', 'add-task', array('Add task after', 'Add subtask'));
