@@ -1,8 +1,7 @@
-.input {
+input {
 	border: none;
 	outline: none;
-	background-color: #e6e6e6;
-	width: 300px;
+	font-weight: bold;
 }
 .action {
 	color: gray;
@@ -15,4 +14,9 @@
 }
 .status {
 	width: 50px;
+	margin-right: 10px;
+}
+.task-content {
+	display: table-cell;
+	vertical-align: middle;
 }

@@ -22,6 +22,8 @@
 	<script type='text/javascript' src='js/delete-item.js'></script>
 	<script type='text/javascript' src='js/create-status-menu.js'></script>
 	<script type='text/javascript' src='js/change-status.js'></script>
+	<script type='text/javascript' src='js/create-indent.js'></script>
+	<script type='text/javascript' src='js/get-row-info.js'></script>
 </head>
 
 <body>
@@ -40,6 +42,11 @@
 			createSnippetStatus('Status', '', $status_list);
 			createSnippetAction('add', 'plus', 'add-task', array('Add task after', 'Add subtask'));
 			createSnippetAction('delete', 'trash', 'del-task', array('Delete forever')); ?>
+			<span class='new-task-snippet'>
+				<span class='indent'></span>
+				<span class='glyphicon glyphicon-chevron-right'></span>
+				<input class='new-task-text' type='text' autofocus>
+			</span>
 		</div></div>
 		
 		<div class='row spacer'><div class='col-md-12'></div></div>

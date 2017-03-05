@@ -15,11 +15,11 @@ if(isset($_GET['id'])) {
 	$data = getItemData($db, $id);
 }
 
-if($_GET['type'] == 'add') {
+if($_GET['type'] == 'task') {
 	newItem($db, $data['rgt'], $_GET['task']);
 	echo getNewItemData($db);
 }
-elseif($_GET['type'] == 'sub') {
+elseif($_GET['type'] == 'subtask') {
 	newItem($db, $data['lft'], $_GET['task']);
 	echo getNewItemData($db);
 }
