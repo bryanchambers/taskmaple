@@ -29,8 +29,12 @@ function newItemInput(row, id, depth, type) {
 	$('#new-task-row').keyup(function(event) {
 		if(event.keyCode == 13) {
 			var text = $(this).find('.new-task-text').val();
-			$(this).replaceWith(createRow($('#' + row).clone(), 100, depth, 'New', 'btn-warning', text));
-			$.get('api.php?type=' + type + '&id=' + id + '&task=' + text);
+			$.get('api.php?type=' + type + '&id=' + id + '&task=' + text, function(data) {
+				var data = JSON.parse(data);
+				$('#new-task-row').replaceWith(createRow($('#' + row).clone(), data.id, depth, data.status, data.style, data.task));
+				addEventListeners('#' + data.id + '-' + depth);
+			});
+
 		}
 	});
 }

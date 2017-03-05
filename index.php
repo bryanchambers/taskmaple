@@ -17,6 +17,7 @@
 	
 	<!-- App specific JS -->
 	<script type='text/javascript' src='js/main.js'></script>
+	<script type='text/javascript' src='js/add-event-listeners.js'></script>
 	<script type='text/javascript' src='js/new-item-input.js'></script>
 	<script type='text/javascript' src='js/create-branch.js'></script>
 	<script type='text/javascript' src='js/delete-item.js'></script>
@@ -32,8 +33,8 @@
 		<div class='row spacer'><div class='col-md-12'></div></div>
 
 		<!-- Build task tree -->
-		<div class='row'><div class='col-md-6 col-md-offset-3'>
-			<table class='table'><?php buildTaskTree($data, $status_list); ?></table>
+		<div class='row'><div class='col-md-8 col-md-offset-2'>
+			<table class='table table-hover'><?php buildTaskTree($data, $status_list); ?></table>
 		</div></div>
 
 		<!-- HTML snippets -->

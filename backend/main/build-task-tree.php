@@ -10,12 +10,12 @@ function buildTaskTree($data, $status_list) {
 		$style = $row['status_class'];
 
 		echo "<tr id='$id-$depth'>";
-			
+
 			echo "<td>";
 				echo "<div class='task-content'>";
 				echo "<span class='indent'>";
 				for($i = 0; $i < $depth; $i++) {
-					for($j = 0; $j < 10; $j++) { echo "&nbsp;"; }
+					for($j = 0; $j < 12; $j++) { echo "&nbsp;"; }
 				}
 				echo "</span>";
 				
@@ -24,7 +24,7 @@ function buildTaskTree($data, $status_list) {
 
 				echo "<div class='task task-content'>$task</div>";
 			echo "</td>";
-			
+
 			echo "<td>";
 			createSnippetAction('add', 'plus', 'add-task', array('Add task after', 'Add subtask'));
 			echo "</td>";
