@@ -10,6 +10,7 @@ function buildTaskTree($data, $status_list) {
 		$style = $row['status_class'];
 
 		echo "<tr id='$id-$depth'>";
+			echo "<td><span class='glyphicon glyphicon-triangle-bottom action hide-show'></span></td>";
 
 			echo "<td>";
 				echo "<div class='task-content'>";

@@ -25,6 +25,8 @@
 	<script type='text/javascript' src='js/change-status.js'></script>
 	<script type='text/javascript' src='js/create-indent.js'></script>
 	<script type='text/javascript' src='js/get-row-info.js'></script>
+	<script type='text/javascript' src='js/find-descendants.js'></script>
+	<script type='text/javascript' src='js/hide-show.js'></script>
 </head>
 
 <body>

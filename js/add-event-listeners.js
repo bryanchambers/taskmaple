@@ -13,4 +13,9 @@ function addEventListeners(parent) {
 		var info = getRowInfo(event.target);
 		changeStatus(info.row, info.id, info.text);
 	});
+
+	$(parent + ' .hide-show').click(function(event) {
+		var info = getRowInfo(event.target);
+		hideShow(info.row);
+	});
 }
