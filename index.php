@@ -27,6 +27,8 @@
 	<script type='text/javascript' src='js/get-row-info.js'></script>
 	<script type='text/javascript' src='js/find-descendants.js'></script>
 	<script type='text/javascript' src='js/hide-show.js'></script>
+	<script type='text/javascript' src='js/hide.js'></script>
+	<script type='text/javascript' src='js/show.js'></script>
 </head>
 
 <body>
