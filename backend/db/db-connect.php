@@ -1,7 +1,7 @@
 <?php
 
 function dbConnect() {
-	$db = json_decode(file_get_contents('db.json', FILE_USE_INCULDE_PATH));
+	$db = json_decode(file_get_contents('db.json', FILE_USE_INCLUDE_PATH));
 	$db_conn = new mysqli($db->host, $db->user, $db->password, $db->database);
 
 	if($db_conn->connect_errno) {
